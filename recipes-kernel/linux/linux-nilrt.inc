@@ -1,10 +1,17 @@
 inherit kernel
 require recipes-kernel/linux/linux-yocto.inc
 
+KBRANCH = "nilrt/${NI_RELEASE_VERSION}/${LINUX_VERSION}"
+GIT_KERNEL_REPO = "linux.git"
+
 machine_srcrev="${SRCREV}"
 
-# Set the version for traceability purposes
-LINUX_VERSION_EXTENSION = "$([ -z "${BUILDNAME}" ] || echo '-')${BUILDNAME}"
+# Subfolder of the same name will be added to FILESEXTRAPATHS and also
+# used for nilrt-specific config fragment manipulation during build.
+# Provide a unique name for each recipe saved in the same source folder
+KBUILD_FRAGMENTS_LOCATION ?= "nilrt"
+
+LINUX_VERSION_EXTENSION = "$([ "${LINUX_KERNEL_TYPE}" != "standard" ] && echo '-${LINUX_KERNEL_TYPE}')"
 
 # Setting EXTRA_OEMAKE to include CFLAGS settings is required as
 # the Kbuild system will clobber CC (which is used by OE for setting

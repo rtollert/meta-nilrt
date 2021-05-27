@@ -24,6 +24,7 @@ RDEPENDS_${PN} = "\
 	librtpi \
 	lldpd \
 	niwatchdogpet \
+	opkg-utils-shell-tools \
 	parted \
 	rtctl \
 	systemimageupdateinfo \
