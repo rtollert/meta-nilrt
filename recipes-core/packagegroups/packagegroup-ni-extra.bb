@@ -859,7 +859,7 @@ RDEPENDS_${PN} += "\
 "
 
 # meta-qt5
-RDEPENDS_${PN} += "\
+RDEPENDS_${PN}_append_x64 += "\
 	qtvirtualkeyboard \
 "
 
