@@ -175,7 +175,7 @@ RDEPENDS_${PN} += "\
 	libarchive \
 	lighttpd \
 	ltp \
-	mailx \
+	s-nail \
 	msmtp \
 	net-tools \
 	pigz \
